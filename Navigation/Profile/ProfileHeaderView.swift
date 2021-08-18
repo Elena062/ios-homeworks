@@ -13,29 +13,19 @@ class ProfileHeaderView: UIView {
     let avatarImage = UIImage(named: "cat")
     let avatarImageView = UIImageView()
     
-    let userName = UILabel()
-    let userStatus = UILabel()
-    let statusButton = UIButton(type: .roundedRect)
+    let fullNameLabel = UILabel()
+    let statusLabel = UILabel()
+    let setStatusButton = UIButton(type: .roundedRect)
     let statusTextField = UITextField()
     
     private var statusText: String
     
     override func layoutSubviews() {
         
-        avatarImageView.frame = CGRect(x: safeAreaInsets.left + 16, y: safeAreaInsets.top + 16, width: 110, height: 110)
-        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width / 2;
+        avatarImageView.layer.cornerRadius = 55;
         avatarImageView.clipsToBounds = true
         
-
-        userName.frame = CGRect(x: 16, y: safeAreaInsets.top + 27, width: superview!.bounds.width - 32, height: 30)
-        
-        userStatus.frame = CGRect(x: avatarImageView.frame.maxX + 16, y: avatarImageView.frame.maxY - 40, width: 180, height: 30)
-        
-        statusTextField.frame = CGRect(x: avatarImageView.frame.maxX + 16, y: userStatus.frame.maxY + 10, width: superview!.bounds.width - 158, height: 40)
-        
-        
-        statusButton.frame = CGRect(x: safeAreaInsets.left + 16, y: statusTextField.frame.maxY + 16, width: superview!.bounds.width - 32, height: 50)
-        
+        self.fullNameLabel.numberOfLines = 0
     }
     
     override init(frame: CGRect) {
@@ -52,37 +42,37 @@ class ProfileHeaderView: UIView {
         avatarImageView.layer.borderColor = UIColor.white.cgColor
              
         // Добавляем кнопку со скругленными краями и тенью
-        self.addSubview(statusButton)
-        self.statusButton.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
-        statusButton.setTitle("Set status", for: .normal)
-        statusButton.backgroundColor = .blue
-        statusButton.setTitleColor(.white, for: .normal)
-        statusButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        statusButton.layer.cornerRadius = 4
+        self.addSubview(setStatusButton)
+        self.setStatusButton.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
+        setStatusButton.setTitle("Set status", for: .normal)
+        setStatusButton.backgroundColor = .blue
+        setStatusButton.setTitleColor(.white, for: .normal)
+        setStatusButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        setStatusButton.layer.cornerRadius = 4
         
-        statusButton.layer.shadowColor =  UIColor.black.cgColor
-        statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
-        statusButton.layer.shadowRadius = 4
-        statusButton.layer.shadowOpacity = 0.7
+        setStatusButton.layer.shadowColor =  UIColor.black.cgColor
+        setStatusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        setStatusButton.layer.shadowRadius = 4
+        setStatusButton.layer.shadowOpacity = 0.7
           
         // Добавляем имя пользователя
-        self.addSubview(userName)
-        userName.text = "Garry Kotter"
-        userName.textColor = .black
-        userName.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        userName.textAlignment = .center
+        self.addSubview(fullNameLabel)
+        fullNameLabel.text = "Garry Kotter"
+        fullNameLabel.textColor = .black
+        fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        fullNameLabel.textAlignment = .natural
         
         // Добавляем статус пользователя
-        self.addSubview(userStatus)
-        userStatus.text = "Where your treasure is, there your heart will be also"
-        userStatus.backgroundColor = .clear
-        userStatus.textColor = .gray
-        userStatus.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        self.addSubview(statusLabel)
+        statusLabel.text = "Where your treasure is, there your heart will be also"
+        statusLabel.backgroundColor = .clear
+        statusLabel.textColor = .gray
+        statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
         // Добавим обработку нажатия на текущий статус, чтобы поле для редактирования статуса появлялось только после нажатия
-        userStatus.isUserInteractionEnabled = true
+        statusLabel.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(statusTap))
-        self.userStatus.addGestureRecognizer(gesture)
+        self.statusLabel.addGestureRecognizer(gesture)
         
         
         // Добавляем поле для редактирования статуса
@@ -98,6 +88,43 @@ class ProfileHeaderView: UIView {
         // Добавим обработку редактирования текста
         statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         
+        //  Добавляем констрейнты
+        self.avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.setStatusButton.translatesAutoresizingMaskIntoConstraints = false
+        [
+            self.avatarImageView.topAnchor.constraint(equalTo: self.avatarImageView.superview!.topAnchor, constant: 27),
+            self.avatarImageView.leadingAnchor.constraint(equalTo: self.avatarImageView.superview!.leadingAnchor, constant: 16),
+            self.avatarImageView.widthAnchor.constraint(equalToConstant: 110),
+            self.avatarImageView.heightAnchor.constraint(equalToConstant: 110),
+            
+            self.fullNameLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 16),
+            self.fullNameLabel.topAnchor.constraint(lessThanOrEqualTo: self.fullNameLabel.superview!.topAnchor, constant: 27),
+            self.fullNameLabel.trailingAnchor.constraint(equalTo: self.fullNameLabel.superview!.trailingAnchor, constant: -16),
+            self.fullNameLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            self.statusLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 16),
+            self.statusLabel.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: -40),
+            self.statusLabel.heightAnchor.constraint(equalToConstant: 30),
+            self.statusLabel.widthAnchor.constraint(equalToConstant: 180),
+            
+            self.statusTextField.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 16),
+            self.statusTextField.topAnchor.constraint(equalTo: self.statusLabel.bottomAnchor, constant: 10),
+            self.statusTextField.trailingAnchor.constraint(equalTo: self.statusTextField.superview!.trailingAnchor, constant: -16),
+            self.statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            self.setStatusButton.leadingAnchor.constraint(equalTo: self.setStatusButton.superview!.leadingAnchor, constant: 16),
+            self.setStatusButton.topAnchor.constraint(equalTo: self.statusTextField.bottomAnchor, constant: 16),
+            self.setStatusButton.trailingAnchor.constraint(equalTo: self.setStatusButton.superview!.trailingAnchor, constant: -16),
+            self.setStatusButton.heightAnchor.constraint(equalToConstant: 50)
+        ]
+            .forEach {
+                $0.isActive = true
+        }
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -107,7 +134,7 @@ class ProfileHeaderView: UIView {
     @objc func buttonTap() {
         
         if statusText != "" {
-        userStatus.text = statusText
+        statusLabel.text = statusText
         }
         // Скроем поле редактирования статуса после установки нового значения
           statusTextField.isHidden = true
@@ -117,7 +144,7 @@ class ProfileHeaderView: UIView {
         
         // Поле для редактирования статуса становится видимым при нажатии на текущий статус
         statusTextField.isHidden = false
-        statusTextField.text = userStatus.text
+        statusTextField.text = statusLabel.text
 
     }
 
