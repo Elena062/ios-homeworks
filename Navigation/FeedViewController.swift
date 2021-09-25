@@ -18,13 +18,34 @@ class FeedViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 0.759832075, green: 0.9757244856, blue: 0.9566784936, alpha: 1)
         self.title = "Feed"
         
-        let viewPostButton = UIButton(frame: CGRect(x: 150, y: 750, width: 100, height: 30))
-        viewPostButton.setTitle("View post", for: .normal)
-        viewPostButton.backgroundColor = .yellow
-        viewPostButton.setTitleColor(.darkGray, for: .normal)
-        viewPostButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
-        view.addSubview(viewPostButton)
-
+        let firstPostButton = UIButton(type: .roundedRect)
+        firstPostButton.setTitle("View post", for: .normal)
+        firstPostButton.backgroundColor = .yellow
+        firstPostButton.setTitleColor(.darkGray, for: .normal)
+        firstPostButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
+        
+        let secondPostButton = UIButton(type: .roundedRect)
+        secondPostButton.setTitle("View post", for: .normal)
+        secondPostButton.backgroundColor = .green
+        secondPostButton.setTitleColor(.darkGray, for: .normal)
+        secondPostButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
+        
+        let myStackView:UIStackView = UIStackView(arrangedSubviews:[firstPostButton,secondPostButton])
+        view.addSubview(myStackView)
+        
+        myStackView.translatesAutoresizingMaskIntoConstraints = false
+        myStackView.axis = .vertical
+        myStackView.spacing = 10
+        
+        [
+            myStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0),
+            myStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
+            myStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5),
+            myStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5)
+        ]
+            .forEach{
+                $0.isActive = true
+        }
     }
     @objc func tap() {
             
@@ -32,15 +53,5 @@ class FeedViewController: UIViewController {
         vc.currentPost = myPost
         self.navigationController?.pushViewController(vc, animated: true)
         }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
