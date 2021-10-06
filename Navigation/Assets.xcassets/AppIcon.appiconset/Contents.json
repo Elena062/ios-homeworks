@@ -75,7 +75,6 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "logo.png",
       "display-gamut" : "sRGB",
       "scale" : "2x"
     },
@@ -88,7 +87,6 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "logo-1.png",
       "display-gamut" : "sRGB",
       "scale" : "3x"
     },
