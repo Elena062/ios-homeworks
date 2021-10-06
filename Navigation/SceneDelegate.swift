@@ -23,19 +23,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
+        let loginVC = LogInViewController()
+        
         let feedVC = FeedViewController()
-        let feedItemImage = UIImage(systemName: "doc.richtext", withConfiguration: .none)
+        let feedItemImage = UIImage(systemName: "house.fill", withConfiguration: .none)
                feedVC.tabBarItem = UITabBarItem(title: "Message feed", image: feedItemImage, tag: 0)
         
-        let profileVC = ProfileViewController()
-        let profileItemImage = UIImage(systemName: "person.circle", withConfiguration: .none)
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: profileItemImage, tag: 1)
+    //    let profileVC = ProfileViewController()
+ //       let profileItemImage = UIImage(systemName: "person.fill", withConfiguration: .none)
+ //       profileVC.tabBarItem = UITabBarItem(title: "Profile", image: profileItemImage, tag: 1)
                
         let feedNavVC = UINavigationController(rootViewController: feedVC)
-        let profileNavVC = UINavigationController(rootViewController: profileVC)
+        let loginNavVC = UINavigationController(rootViewController: loginVC)
+        let profileItemImage = UIImage(systemName: "person.fill", withConfiguration: .none)
+        loginVC.tabBarItem = UITabBarItem(title: "Profile", image: profileItemImage, tag: 1)
+        loginNavVC.navigationBar.isHidden = true
         
         
-        tabBarController.viewControllers = [profileNavVC, feedNavVC]
+        tabBarController.viewControllers = [feedNavVC, loginNavVC]
+        tabBarController.selectedIndex = 1
         
         window?.rootViewController = tabBarController
     }

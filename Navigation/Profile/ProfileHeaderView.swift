@@ -99,7 +99,7 @@ class ProfileHeaderView: UIView {
             self.avatarImageView.leadingAnchor.constraint(equalTo: self.avatarImageView.superview!.leadingAnchor, constant: 16),
             self.avatarImageView.widthAnchor.constraint(equalToConstant: 110),
             self.avatarImageView.heightAnchor.constraint(equalToConstant: 110),
-            
+   
             self.fullNameLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 16),
             self.fullNameLabel.topAnchor.constraint(lessThanOrEqualTo: self.fullNameLabel.superview!.topAnchor, constant: 27),
             self.fullNameLabel.trailingAnchor.constraint(equalTo: self.fullNameLabel.superview!.trailingAnchor, constant: -16),
@@ -137,7 +137,8 @@ class ProfileHeaderView: UIView {
         statusLabel.text = statusText
         }
         // Скроем поле редактирования статуса после установки нового значения
-          statusTextField.isHidden = true
+        statusTextField.isHidden = true
+        statusTextField.endEditing(true)
     }
     
     @objc func statusTap() {
