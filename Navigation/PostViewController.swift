@@ -10,12 +10,11 @@ import UIKit
 
 class PostViewController: UIViewController {
 
-    var currentPost = Post(title: "")
+    var currentPost = Post.init(author: "test", description: "test", image: "cat", likes: 1, views: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.8087125554, green: 0.9757244856, blue: 0.7910700383, alpha: 1)
-        self.title = currentPost.title
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Info", style: .done, target: self, action: #selector(tapInfo))
         

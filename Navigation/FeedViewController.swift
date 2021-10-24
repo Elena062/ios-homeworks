@@ -11,7 +11,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let myPost = Post(title: "New post")
+    let myPost = Post(author: "author", description: "description", image: "cat", likes: 1, views: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
