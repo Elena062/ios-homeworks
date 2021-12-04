@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF087A6A274C9BD4006E0571 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF087A69274C9BD4006E0571 /* Photos.swift */; };
+		DF106AC527523D6400003D74 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF106AC427523D6400003D74 /* PhotosTableViewCell.swift */; };
+		DF106AC727523F3A00003D74 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF106AC627523F3A00003D74 /* PhotoCollectionViewCell.swift */; };
+		DF106AC92752412900003D74 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF106AC82752412900003D74 /* PhotosViewController.swift */; };
 		DF3971A426FF300C00365E18 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3971A326FF300C00365E18 /* LogInViewController.swift */; };
 		DF3C594726BB31D1004E954B /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C594626BB31D1004E954B /* ProfileTableHeaderView.swift */; };
 		DF3C594926BB3224004E954B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C594826BB3224004E954B /* ProfileViewController.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF087A69274C9BD4006E0571 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		DF106AC427523D6400003D74 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		DF106AC627523F3A00003D74 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		DF106AC82752412900003D74 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		DF3971A326FF300C00365E18 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		DF3C594626BB31D1004E954B /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		DF3C594826BB3224004E954B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +59,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF106AC327523D2B00003D74 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				DF106AC427523D6400003D74 /* PhotosTableViewCell.swift */,
+				DF106AC627523F3A00003D74 /* PhotoCollectionViewCell.swift */,
+				DF106AC82752412900003D74 /* PhotosViewController.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
 		DF3C594526BB30BC004E954B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +99,7 @@
 		DF4F495926B226D000F2021D /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DF106AC327523D2B00003D74 /* Photos */,
 				DFFA855527260939008C28F6 /* Storage */,
 				DF3C594526BB30BC004E954B /* Profile */,
 				DF4F495A26B226D000F2021D /* AppDelegate.swift */,
@@ -100,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				DFFA855627260966008C28F6 /* Post.swift */,
+				DF087A69274C9BD4006E0571 /* Photos.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -175,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF4F495F26B226D000F2021D /* ViewController.swift in Sources */,
+				DF087A6A274C9BD4006E0571 /* Photos.swift in Sources */,
 				DF4F495B26B226D000F2021D /* AppDelegate.swift in Sources */,
 				DF3C594926BB3224004E954B /* ProfileViewController.swift in Sources */,
 				DF6A755326B4217E00825381 /* PostViewController.swift in Sources */,
@@ -182,7 +203,10 @@
 				DF4F497726B3D6F200F2021D /* InfoViewController.swift in Sources */,
 				DF4F497126B227A600F2021D /* FeedViewController.swift in Sources */,
 				DF3971A426FF300C00365E18 /* LogInViewController.swift in Sources */,
+				DF106AC92752412900003D74 /* PhotosViewController.swift in Sources */,
+				DF106AC527523D6400003D74 /* PhotosTableViewCell.swift in Sources */,
 				DFFA855727260966008C28F6 /* Post.swift in Sources */,
+				DF106AC727523F3A00003D74 /* PhotoCollectionViewCell.swift in Sources */,
 				DF4F495D26B226D000F2021D /* SceneDelegate.swift in Sources */,
 				DFFA855927260C62008C28F6 /* PostTableViewCell.swift in Sources */,
 			);
