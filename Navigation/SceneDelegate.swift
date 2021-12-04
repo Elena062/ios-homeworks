@@ -29,15 +29,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let feedItemImage = UIImage(systemName: "house.fill", withConfiguration: .none)
                feedVC.tabBarItem = UITabBarItem(title: "Message feed", image: feedItemImage, tag: 0)
         
-    //    let profileVC = ProfileViewController()
+   //     let profileVC = ProfileViewController()
  //       let profileItemImage = UIImage(systemName: "person.fill", withConfiguration: .none)
  //       profileVC.tabBarItem = UITabBarItem(title: "Profile", image: profileItemImage, tag: 1)
                
         let feedNavVC = UINavigationController(rootViewController: feedVC)
         let loginNavVC = UINavigationController(rootViewController: loginVC)
+     //   let galleryNavVC = UINavigationController(rootViewController: PhotosViewController())
         let profileItemImage = UIImage(systemName: "person.fill", withConfiguration: .none)
         loginVC.tabBarItem = UITabBarItem(title: "Profile", image: profileItemImage, tag: 1)
         loginNavVC.navigationBar.isHidden = true
+        
+   //     let profileNavVC = UINavigationController(rootViewController: profileVC)
+        
+    //    galleryNavVC.navigationBar.isHidden = false
         
         
         tabBarController.viewControllers = [feedNavVC, loginNavVC]
